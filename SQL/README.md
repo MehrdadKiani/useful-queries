@@ -1,3 +1,8 @@
+# SQL collection
+
+## Date and Time
+
+#### Find the last week's day as Date
 ```sql
 SELECT DATEADD(DD,-(DATEPART(WEEKDAY, GETDATE())+0)%7, GETDATE()) -- Last Saturday
 SELECT DATEADD(DD,-(DATEPART(WEEKDAY, GETDATE())+1)%7, GETDATE()) -- Last Fridays
