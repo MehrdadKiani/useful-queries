@@ -1,4 +1,8 @@
-Get the current day full name. e.g. Monday or Tuesday:
+# SSIS expression collection
+
+## Date and Time
+
+#### Get the current day full name. e.g. Monday or Tuesday:
 ```sql
 (
 DATEPART("dw", GETDATE()) == 1 ? "Sunday"     : 
