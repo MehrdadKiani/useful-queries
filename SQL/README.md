@@ -13,7 +13,7 @@ SELECT DATEADD(DD,-(DATEPART(WEEKDAY, GETDATE())+5)%7, GETDATE()) -- Last Monday
 SELECT DATEADD(DD,-(DATEPART(WEEKDAY, GETDATE())+6)%7, GETDATE()) -- Last Sunday
 ```
 
-## Others
+## System, connection and users
 
 #### Find active connections
 ```sql
