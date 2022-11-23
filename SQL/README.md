@@ -15,7 +15,7 @@ SELECT DATEADD(DD,-(DATEPART(WEEKDAY, GETDATE())+6)%7, GETDATE()) -- Last Sunday
 
 ## System, connection and users
 
-#### Find active connections
+#### Find and kill active connections
 ```sql
 SELECT sysp.spid,
        sysd.NAME,
