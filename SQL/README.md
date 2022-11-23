@@ -37,3 +37,8 @@ FROM   sys.databases sysd
          ON sysp.dbid = syss.session_id
 WHERE  sysd.NAME LIKE '%DBNAME%' 
 ```
+
+#### Kill a process by SPID
+```sql
+KILL spid
+```
