@@ -35,5 +35,5 @@ FROM   sys.databases sysd
          ON sysd.database_id = sysp.dbid
        JOIN sys.dm_exec_sessions syss
          ON sysp.dbid = syss.session_id
-WHERE  sysd.NAME LIKE '%mirogliodm_staging_input%' 
+WHERE  sysd.NAME LIKE '%DBNAME%' 
 ```
