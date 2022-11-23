@@ -35,10 +35,8 @@ FROM   sys.databases sysd
          ON sysd.database_id = sysp.dbid
        JOIN sys.dm_exec_sessions syss
          ON sysp.dbid = syss.session_id
-WHERE  sysd.NAME LIKE '%DBNAME%' 
-```
+WHERE  sysd.NAME LIKE '%miroglio%' 
 
-#### Kill a process by SPID
-```sql
-KILL spid
+-- Killing a process by SPID
+-- KILL spid
 ```
