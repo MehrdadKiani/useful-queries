@@ -40,3 +40,16 @@ WHERE  sysd.NAME LIKE '%miroglio%'
 -- Killing a process by SPID
 -- KILL spid
 ```
+
+#### Find tables that have at least 1 row
+```sql
+SELECT NAME           AS table_name,
+       Sum(row_count) AS row_count
+FROM   sys.dm_db_partition_stats p
+       JOIN sys.objects o
+         ON o.object_id = p.object_id
+WHERE  o.type NOT IN ( 'S', 'IT' )
+GROUP  BY NAME,
+          row_count
+HAVING Sum(row_count) > 0
+```
