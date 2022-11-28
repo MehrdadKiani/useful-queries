@@ -42,7 +42,7 @@ WHERE  sysd.NAME LIKE '%miroglio%'
 ```
 
 #### Find tables that have at least 1 row
-```sql
+```SQL
 SELECT NAME AS table_name, Sum(row_count) AS row_count
 FROM   sys.dm_db_partition_stats p JOIN sys.objects o
        ON o.object_id = p.object_id
