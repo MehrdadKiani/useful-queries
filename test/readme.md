@@ -71,4 +71,38 @@ A prepared sample of the configuration file is located in the ppt folder, where 
 
 
 ## How to create a test
+In order to create a new test plan for an SSIS package first you need to follow a standard structure of files and folders. you can find documentation about these structures [here](https://gitlab.evouser.com/etl/etl_v2/etl-common/-/tree/master/tests).
+
+Generally, the test plans are Yaml files, a file with the extension of `.yml`. In our case, a test plan is divided into two general sections: `variables` and `test cases`
+
+Variables:
+```
+  plan_name: testplan_item
+  database: DB_name
+  package_file: etl-common.ispac
+  package_name: "item common processing.dtsx"
+  currency: EUR
+```
+These variables will be used in the test cases. So for each test plan, you need to adjust them as you need. For example, for the variable `package_name` you need to specify which package you are testing.
+
+Test cases:
+```
+name: TC001
+enable: true
+description: Cover somthing
+
+setup:
+teardown:
+actions:
+  - run:
+  - compare:
+```
+In this section you can write the rules for the package and these rules can be divided into as many test cases as you want, for example, `TC001`, `TC002` , ...  
+Each one of these TCs is a test case for the package you are testing and each test case is divided into three general sections, `setup`, `teardown`, and `actions`.
+The order of the execution of these steps would be:
+```
+setup -> action -> teardown
+```
+The `setup` section helps you to run a query at the beginning of the running test, for example, run a query to insert some fake date into DB and prepare DB to run a test in this way. After the setup phase, the `actions` will be executed, in this section, we generally run a package in order to manipulate the data of the DB and then run a comparison to see if the result of the package is as expected.
+In the last section, `teardown`, you can run a query after the test at the end of the process. For example, you can run a query to clean up the DB and prepare it for the other test cases.
 
